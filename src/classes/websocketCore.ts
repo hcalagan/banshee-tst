@@ -73,7 +73,7 @@ export class WebsocketCore implements IWebsocketCore {
       client.onmessage = (msg) => {
         try {
           const data = JSON.parse(msg.data)
-          if (!data.result.data) {
+          if (!data.result || !data.result.data) {
             return
           }
 
